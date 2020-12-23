@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CR TP1 DW</title>
+</head>
+<body>
+
+<h1 style="text-align: center;">Compte rendu TP1 DW</h1>
+<p><span>Etape 1: Exploration de l’instance</span><span><br /><br /></span></p>
+<ol>
+<li><span>S&eacute;lectionner toutes les capitales<br /></span>
+	<textarea readonly rows="4" cols="100">/countries/country/capital</textarea>
+</li>
+<li><span>S&eacute;lectionner les noms communs (name/common) des pays<br /></span>
+	<textarea readonly rows="4" cols="100">/countries/country/name/common</textarea>
+</li>
+<li><span>S&eacute;lectionner la superficie de chaque pays<br /></span>
+	<textarea readonly rows="4" cols="100">/countries/country/@area</textarea>
+</li>
+<li><span>S&eacute;lectionner les &eacute;l&eacute;ments ayant au moins un attribut<br /></span>
+	<textarea readonly rows="4" cols="100">//*[@*]</textarea>
+</li>
+<li><span>S&eacute;lectionner les noms officiels des pays exprim&eacute;s français, pour ceux qui en ont<br /></span>
+	<textarea readonly rows="4" cols="100">/countries/country/name/native_name[@lang="fra"]/official</textarea>
+</li>
+<li><span>S&eacute;lectionner les deuxièmes noms natifs officiels des pays<br /></span>
+	<textarea readonly rows="4" cols="100">/countries/country/name/native_name[position()=2]/official</textarea>
+</li>
+<li><span>S&eacute;lectionner la somme des superficies (area) des pays d'Europe<br /></span>
+	<textarea readonly rows="4" cols="100">sum(//country[infosContinent/continent="Europe"]/@area)</textarea>
+</li>
+<li><span>S&eacute;lectionner les pays dont le nom commun n'est pas contenu dans leur nom officiel<br /></span>
+	<textarea readonly rows="4" cols="100">//country[not(contains(common,official))]</textarea>
+</li>
+<li><span>S&eacute;lectionner le dernier voisin de la France<br /></span>
+	<textarea readonly rows="4" cols="100">//country[name/common="France"]/borders/neighbour[last()]</textarea>
+</li>
+<li><span>S&eacute;lectionner la position de la France dans le document XML<br /></span>
+	<textarea readonly rows="4" cols="100">count(//country[name/common="France"]/preceding-sibling::*)+1</textarea>
+</li>
+<li><span>S&eacute;lectionner les langues des noms natifs des pays sans doublons<br /></span>
+	<textarea readonly rows="4" cols="100">//native_name[not(@lang = preceding::native_name/@lang)]/@lang</textarea>
+</li>
+</ol>
+
+
+</body>
+</html>
